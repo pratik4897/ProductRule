@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * 
+ * Apoyar
+ *
+ * DISCLAIMER
+ *
+ * Please do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category   Apoyar
+ * @package    Apoyar_ProductRules
+ * @copyright  Copyright (c) 2023 Apoyar (http://www.apoyar.eu/)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+	<module name="Apoyar_ProductRules" setup_version="1.0.0">
+		<sequence>
+			<module name="Magento_Directory"/>
+			<module name="Magento_Config"/>
+			<module name="Magento_Sales"/>
+			<module name="Magento_Catalog"/>
+		</sequence>
+	</module>
+</config>

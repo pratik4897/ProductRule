@@ -1,0 +1,28 @@
+{
+  "name": "apoyar/module-product-rules",
+  "description": "Magento 2 Module for assigning category and attributes to a set of products automatically",
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "license": [
+    "Commercial"
+  ],
+  "authors": [
+    {
+      "name": "Apoyar",
+      "email": "info@apoyar.eu",
+      "homepage": "https://www.apoyar.eu",
+      "role": "Technical Support"
+    }
+  ],
+  "require": {
+    "php": ">=7.3"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Apoyar\\ProductRules\\": ""
+    }
+  }
+}
