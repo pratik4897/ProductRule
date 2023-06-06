@@ -1,6 +1,10 @@
 <?php
+/**
+ * Created by Metagento.com
+ * Date: 11/1/2018
+ */
 
-namespace Prateek\DisableNewsletterSuccess\Plugin\Newsletter\Model;
+namespace Metagento\DisableNewsletterSuccess\Plugin\Newsletter\Model;
 
 
 class Subscriber
