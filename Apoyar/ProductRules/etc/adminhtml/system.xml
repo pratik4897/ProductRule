@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * 
+ * Apoyar
+ *
+ * DISCLAIMER
+ *
+ * Please do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category   Apoyar
+ * @package    Apoyar_ProductRules
+ * @copyright  Copyright (c) 2023 Apoyar (http://www.apoyar.eu/)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="apoyar" translate="label" sortOrder="199" class="apoyar-tab apoyar-tab-container">
+            <label>Apoyar</label>
+        </tab>
+        <section id="productruletab" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Product Rule</label>
+            <tab>apoyar</tab>
+            <resource>Apoyar_ProductRules::config</resource>
+            <group id="generalRule" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Configuration</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Product Rules</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>enable/disable the module</comment>
+                </field>
+                <field id="ruleSpecificIds" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Rule Ids are used specific cron job</label>
+                    <comment>Run specific rules in cron (Please enter comma separated Rule Id's) </comment>
+                </field>
+            </group>
+            <group id="serverdetails" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Log Directory</label>
+                <field id="logPath" translate="label" type="text" sortOrder="50" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Log Directory</label>
+                    <comment>Where the logs will be stored ? leave blank for default "var/log" directory</comment>
+                </field>
+            </group>
+            <group id="configurable_cron" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Cron Settings</label>
+                <field id="cron_expression_slot_1" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cron Expression Slot 1</label>
+                    <validate>required-entry</validate>
+                    <comment>Enter the cron job timing in the format "* * * * *", where each asterisk represents a field for minute, hour, day of the month, month, and day of the week, respectively. For example, "0 3 * * *" represents a cron job that runs every day at 3:00am.</comment>
+                </field>
+                <field id="cron_expression_slot_2" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cron Expression Slot 2</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="specific_cron_ids" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cron Expression for specific rules</label>
+                    <validate>required-entry</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
+

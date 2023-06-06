@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * 
+ * Apoyar
+ *
+ * DISCLAIMER
+ *
+ * Please do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category   Apoyar
+ * @package    Apoyar_ProductRules
+ * @copyright  Copyright (c) 2023 Apoyar (http://www.apoyar.eu/)
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="admin.productrules.grid">
+            <block ifconfig="productruletab/generalRule/enable" class="Magento\Backend\Block\Widget\Grid" name="productrules.grid" as="grid">
+                <arguments>
+                    <argument name="id" xsi:type="string">product_rule</argument>
+                    <argument name="dataSource" xsi:type="object">Apoyar\ProductRules\Model\ResourceModel\Rule\Collection</argument>
+                    <argument name="default_sort" xsi:type="string">rule_id</argument>
+                    <argument name="default_dir" xsi:type="string">DESC</argument>
+                    <argument name="ajax" xsi:type="string">1</argument>
+                    <argument name="save_parameters_in_session" xsi:type="string">0</argument>
+                </arguments>
+                <block class="Magento\Backend\Block\Widget\Grid\Massaction" name="productrules.grid.massaction" as="grid.massaction">
+                    <arguments>
+                        <argument name="massaction_id_field" xsi:type="string">rule_id</argument>
+                        <argument name="form_field_name" xsi:type="string">ids</argument>
+                        <argument name="use_select_all" xsi:type="string">1</argument>
+                        <argument name="options" xsi:type="array">
+                            <item name="massDelete" xsi:type="array">
+                                <item name="label" xsi:type="string" translate="true">Delete</item>
+                                <item name="url" xsi:type="string">apoyar_productrules/product_rule/massDelete</item>
+                            </item>
+                        </argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Backend\Block\Widget\Grid\ColumnSet" name="product_rule.grid.columnSet" as="grid.columnSet">
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="rule_id">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">ID</argument>
+                            <argument name="index" xsi:type="string">rule_id</argument>
+                            <argument name="type" xsi:type="string">text</argument>
+                            <argument name="column_css_class" xsi:type="string">col-id</argument>
+                            <argument name="header_css_class" xsi:type="string">col-id</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="name">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Name</argument>
+                            <argument name="index" xsi:type="string">name</argument>
+                            <argument name="type" xsi:type="string">text</argument>
+                            <argument name="column_css_class" xsi:type="string">col-id</argument>
+                            <argument name="header_css_class" xsi:type="string">col-id</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="is_active">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Active</argument>
+                            <argument name="index" xsi:type="string">is_active</argument>
+                            <argument name="renderer" xsi:type="string">Apoyar\ProductRules\Block\Adminhtml\Data\Grid\Renderer\Enabled</argument>
+                            <argument name="column_css_class" xsi:type="string">col-id</argument>
+                            <argument name="header_css_class" xsi:type="string">col-id</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="is_dry_run">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Dry Run</argument>
+                            <argument name="index" xsi:type="string">is_dry_run</argument>
+                            <argument name="renderer" xsi:type="string">Apoyar\ProductRules\Block\Adminhtml\Data\Grid\Renderer\Enabled</argument>
+                            <argument name="column_css_class" xsi:type="string">col-id</argument>
+                            <argument name="header_css_class" xsi:type="string">col-id</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="lastrun_duration">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Run Time</argument>
+                            <argument name="index" xsi:type="string">lastrun_duration</argument>
+                            <argument name="column_css_class" xsi:type="string">col-id</argument>
+                            <argument name="header_css_class" xsi:type="string">col-id</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="lastrun_matches">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Matches</argument>
+                            <argument name="index" xsi:type="string">lastrun_matches</argument>
+                            <argument name="column_css_class" xsi:type="string">col-id</argument>
+                            <argument name="header_css_class" xsi:type="string">col-id</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="lastrun_updates">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Updates</argument>
+                            <argument name="index" xsi:type="string">lastrun_updates</argument>
+                            <argument name="column_css_class" xsi:type="string">col-id</argument>
+                            <argument name="header_css_class" xsi:type="string">col-id</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="apply_to_stores">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Store View</argument>
+                            <argument name="index" xsi:type="string">apply_to_stores</argument>
+                            <argument name="renderer" xsi:type="string">Apoyar\ProductRules\Block\Adminhtml\Data\Grid\Renderer\Storeview</argument>
+                            <argument name="column_css_class" xsi:type="string">col-id</argument>
+                            <argument name="header_css_class" xsi:type="string">col-id</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="edit">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Edit</argument>
+                            <argument name="index" xsi:type="string">rule_id</argument>
+                            <argument name="type" xsi:type="string">action</argument>
+                            <argument name="getter" xsi:type="string">getId</argument>
+                            <argument name="filter" xsi:type="string">0</argument>
+                            <argument name="sortable" xsi:type="string">0</argument>
+                            <argument name="actions" xsi:type="array">
+                                <item name="edit_action" xsi:type="array">
+                                    <item name="caption" xsi:type="string" translate="true">Edit</item>
+                                    <item name="url" xsi:type="array">
+                                        <item name="base" xsi:type="string">*/*/edit</item>
+                                    </item>
+                                    <item name="field" xsi:type="string">id</item>
+                                </item>
+                            </argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="delete">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Run</argument>
+                            <argument name="index" xsi:type="string">rule_id</argument>
+                            <argument name="type" xsi:type="string">action</argument>
+                            <argument name="getter" xsi:type="string">getId</argument>
+                            <argument name="filter" xsi:type="string">0</argument>
+                            <argument name="sortable" xsi:type="string">0</argument>
+                            <argument name="actions" xsi:type="array">
+                                <item name="edit_action" xsi:type="array">
+                                    <item name="caption" xsi:type="string" translate="true">Run</item>
+                                    <item name="url" xsi:type="array">
+                                        <item name="base" xsi:type="string">*/*/run</item>
+                                    </item>
+                                    <item name="field" xsi:type="string">id</item>
+                                </item>
+                            </argument>
+                        </arguments>
+                    </block>
+                </block>
+            </block>
+        </referenceBlock>
+    </body>
+</page>
